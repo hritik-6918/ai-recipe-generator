@@ -1,54 +1,106 @@
-# React + TypeScript + Vite
+https://github.com/user-attachments/assets/94f13a9a-d21a-4fbb-84e0-4be685bf47db
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# AI Recipe Generator
 
-Currently, two official plugins are available:
+AI Recipe Generator is a web application that uses artificial intelligence to create unique recipes based on ingredients provided by the user. Built with React, TypeScript, Vite, and AWS Amplify, this application leverages Anthropic's Claude 3 Sonnet model via AWS Bedrock to generate creative recipe suggestions.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- Input ingredients in a comma-separated format
+- Generates unique recipes using AI
+- User authentication via AWS Amplify
+- Responsive design with a clean, modern UI
+- Loading states and error handling
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Prerequisites
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- Node.js (v18 or later)
+- npm (v9 or later)
+- AWS account with Amplify CLI configured
+- Access to AWS Bedrock service
+
+## Getting Started
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/hritik-6918/ai-recipe-generator.git
+cd ai-recipe-generator
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+2. Install dependencies:
+```bash
+npm install
 ```
+
+3. Initialize Amplify:
+```bash
+amplify init
+```
+
+4. Deploy backend resources:
+```bash
+amplify push
+```
+
+### Running the Application
+
+1. Start the development server:
+```bash
+npm run dev
+```
+
+2. Open your browser and visit:
+```
+http://localhost:5173
+```
+
+### Building for Production
+
+```bash
+npm run build
+```
+
+### Linting
+
+```bash
+npm run lint
+```
+
+## Technology Stack
+
+- **Frontend**: React 19, TypeScript, Vite
+- **Styling**: CSS with responsive design
+- **Backend**: AWS Amplify
+- **AI**: AWS Bedrock (Anthropic Claude 3 Sonnet)
+- **Authentication**: AWS Amplify Auth
+- **Linting**: ESLint with TypeScript support
+
+## Configuration
+
+### ESLint
+The project includes a robust ESLint configuration with TypeScript support. To extend it further, see the ESLint configuration section in the original template documentation.
+
+### TypeScript
+Multiple tsconfig files are used:
+- `tsconfig.app.json`: For the React application
+- `tsconfig.node.json`: For Node.js-specific files (like Vite config)
+- `amplify/tsconfig.json`: For Amplify backend
+
+### AWS Amplify
+- Authentication is configured with email verification
+- Data layer uses GraphQL with Bedrock integration
+- Default authorization mode is API Key (30-day expiration)
+
+## Usage
+
+1. Sign up or log in using the authentication interface
+2. Enter ingredients in the format: `ingredient1, ingredient2, ingredient3`
+3. Click "Generate" to receive an AI-generated recipe
+4. View the recipe in the result section
+
+## Acknowledgments
+
+- Built with ❤️ by Hritik
+- Powered by AWS Amplify and Anthropic's Claude 3 Sonnet
